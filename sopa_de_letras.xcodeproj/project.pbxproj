@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26A1077C87BBC0562A2A17F6 /* Pods_sopa_de_letras.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FF66283C489A75BF78511D4 /* Pods_sopa_de_letras.framework */; };
 		443A1D48238BEE6100771A34 /* LetterViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443A1D47238BEE6100771A34 /* LetterViewCell.swift */; };
 		447ED850238BD5AF0018A5A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED84F238BD5AF0018A5A2 /* AppDelegate.swift */; };
 		447ED852238BD5AF0018A5A2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447ED851238BD5AF0018A5A2 /* SceneDelegate.swift */; };
@@ -14,9 +15,11 @@
 		447ED857238BD5AF0018A5A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447ED855238BD5AF0018A5A2 /* Main.storyboard */; };
 		447ED859238BD5B00018A5A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447ED858238BD5B00018A5A2 /* Assets.xcassets */; };
 		447ED85C238BD5B00018A5A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447ED85A238BD5B00018A5A2 /* LaunchScreen.storyboard */; };
+		44A5EA81238E775B00271658 /* Utilidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A5EA80238E775B00271658 /* Utilidades.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10A3D3589411E37470AA0047 /* Pods-sopa_de_letras.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sopa_de_letras.release.xcconfig"; path = "Target Support Files/Pods-sopa_de_letras/Pods-sopa_de_letras.release.xcconfig"; sourceTree = "<group>"; };
 		443A1D47238BEE6100771A34 /* LetterViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterViewCell.swift; sourceTree = "<group>"; };
 		447ED84C238BD5AF0018A5A2 /* sopa_de_letras.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sopa_de_letras.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447ED84F238BD5AF0018A5A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -26,6 +29,9 @@
 		447ED858238BD5B00018A5A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		447ED85B238BD5B00018A5A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		447ED85D238BD5B00018A5A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		44A5EA80238E775B00271658 /* Utilidades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilidades.swift; sourceTree = "<group>"; };
+		8FF66283C489A75BF78511D4 /* Pods_sopa_de_letras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sopa_de_letras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A38AC8C37E312B0E1F3C2EFC /* Pods-sopa_de_letras.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sopa_de_letras.debug.xcconfig"; path = "Target Support Files/Pods-sopa_de_letras/Pods-sopa_de_letras.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,18 +39,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26A1077C87BBC0562A2A17F6 /* Pods_sopa_de_letras.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21389D84E93DB273223BF10E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A38AC8C37E312B0E1F3C2EFC /* Pods-sopa_de_letras.debug.xcconfig */,
+				10A3D3589411E37470AA0047 /* Pods-sopa_de_letras.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		447ED843238BD5AF0018A5A2 = {
 			isa = PBXGroup;
 			children = (
 				447ED863238BD83F0018A5A2 /* ViewControllers */,
 				447ED84E238BD5AF0018A5A2 /* sopa_de_letras */,
 				447ED84D238BD5AF0018A5A2 /* Products */,
+				21389D84E93DB273223BF10E /* Pods */,
+				E800868561581B5B04DDFCBD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -66,6 +84,7 @@
 				447ED858238BD5B00018A5A2 /* Assets.xcassets */,
 				447ED85A238BD5B00018A5A2 /* LaunchScreen.storyboard */,
 				447ED85D238BD5B00018A5A2 /* Info.plist */,
+				44A5EA80238E775B00271658 /* Utilidades.swift */,
 			);
 			path = sopa_de_letras;
 			sourceTree = "<group>";
@@ -78,6 +97,14 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		E800868561581B5B04DDFCBD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8FF66283C489A75BF78511D4 /* Pods_sopa_de_letras.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -85,9 +112,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447ED860238BD5B00018A5A2 /* Build configuration list for PBXNativeTarget "sopa_de_letras" */;
 			buildPhases = (
+				6D65BA3D12706757B2E1CA47 /* [CP] Check Pods Manifest.lock */,
 				447ED848238BD5AF0018A5A2 /* Sources */,
 				447ED849238BD5AF0018A5A2 /* Frameworks */,
 				447ED84A238BD5AF0018A5A2 /* Resources */,
+				9BADF6820CF406FC19F33A42 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -144,6 +173,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6D65BA3D12706757B2E1CA47 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-sopa_de_letras-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BADF6820CF406FC19F33A42 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sopa_de_letras/Pods-sopa_de_letras-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-sopa_de_letras/Pods-sopa_de_letras-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sopa_de_letras/Pods-sopa_de_letras-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		447ED848238BD5AF0018A5A2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -153,6 +224,7 @@
 				447ED854238BD5AF0018A5A2 /* ViewController.swift in Sources */,
 				447ED850238BD5AF0018A5A2 /* AppDelegate.swift in Sources */,
 				447ED852238BD5AF0018A5A2 /* SceneDelegate.swift in Sources */,
+				44A5EA81238E775B00271658 /* Utilidades.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,6 +366,7 @@
 		};
 		447ED861238BD5B00018A5A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A38AC8C37E312B0E1F3C2EFC /* Pods-sopa_de_letras.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -312,6 +385,7 @@
 		};
 		447ED862238BD5B00018A5A2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 10A3D3589411E37470AA0047 /* Pods-sopa_de_letras.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

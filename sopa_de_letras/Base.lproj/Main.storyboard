@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -17,10 +17,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="maD-WM-ZPm">
-                                <rect key="frame" x="15" y="259" width="343" height="106.5"/>
+                                <rect key="frame" x="15" y="259" width="321" height="106.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="3BS-aq-acQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWC-Lh-bN6" userLabel="New Game">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
@@ -29,9 +29,12 @@
                                                     <constraint firstAttribute="width" constant="100" id="6qJ-t5-ko1"/>
                                                 </constraints>
                                                 <state key="normal" title="new game"/>
+                                                <connections>
+                                                    <action selector="newGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="yDg-JV-TT6"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWt-go-bgB" userLabel="Time">
-                                                <rect key="frame" x="150" y="5" width="100" height="20.5"/>
+                                                <rect key="frame" x="150" y="5" width="21" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="ho8-1s-cYO"/>
                                                 </constraints>
@@ -40,7 +43,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTK-fz-NNO" userLabel="Borrar">
-                                                <rect key="frame" x="300" y="0.0" width="43" height="30"/>
+                                                <rect key="frame" x="221" y="0.0" width="100" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="ZCH-Ea-kPB"/>
                                                 </constraints>
@@ -53,16 +56,16 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="mJE-9Q-UFO">
-                                        <rect key="frame" x="0.0" y="73" width="343" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="73" width="321" height="33.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-sj-ZYO" userLabel="Word">
-                                                <rect key="frame" x="0.0" y="0.0" width="185.5" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="173.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pz0-Jm-IpC" userLabel="Check">
-                                                <rect key="frame" x="185.5" y="0.0" width="157.5" height="33.5"/>
+                                                <rect key="frame" x="173.5" y="0.0" width="147.5" height="33.5"/>
                                                 <state key="normal" title="CHECK"/>
                                                 <connections>
                                                     <action selector="chekWord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gyn-Uy-MnJ"/>
@@ -75,7 +78,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zim-py-gTA">
-                                <rect key="frame" x="0.0" y="44" width="373" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="351" height="200"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="q35-mW-ULC"/>

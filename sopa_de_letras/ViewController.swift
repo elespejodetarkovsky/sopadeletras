@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Alamofire
+
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
@@ -14,6 +16,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func newGame(_ sender: Any) {
+        
+        lblTime.text = "30"
+        self.segJuegos = 30
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         correctsWords.count
@@ -44,38 +52,42 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
         
         var match: Bool = false
+        var word: String = self.lblWord.text ?? ""
         
-        for word in self.wordDictionary {
-            
-            print("palabra actual del diccionario: ", word,
-                  "\n la palabra ingresada: ", self.lblWord.text)
-        
-            
-            if word == self.lblWord.text ?? "" {
+            //aquí hace la consulta
+            Utilidades.consulta(word: word, completion:{ result in
                 
-                match = true
-                //evaluo si se ha introducido ya
-                if self.correctsWords.firstIndex(of: word) == nil {
+                print(result)
+                
+                if result == true {
                     
-                    self.correctsWords.append(self.lblWord.text ?? "")
-                    self.tableView.reloadData()
-                    self.lblCheck.text = "correcto"
-                    self.lblCheck.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                    //evaluo si se ha introducido ya
+                    if self.correctsWords.firstIndex(of: word) == nil {
+                        
+                        self.correctsWords.append(self.lblWord.text!)
+                        self.tableView.reloadData()
+                        self.lblCheck.text = "correcto"
+                        self.lblCheck.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                        
+                        
+                    } else {
+                        
+                        self.lblCheck.text = "ya introducida"
+                    }
                     
-                    
-                } else {
-                    
-                    self.lblCheck.text = "ya introducida"
                 }
+
                 
-            }
+            })
             
-        }
         
         if !match {
             self.lblCheck.text = "incorrecto"
             self.lblCheck.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
         }
+        
+        
+        
     }
     
     
@@ -186,6 +198,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //se ejecuta el código si el boton
         //se encuentra en false (que no se ha presionado)
         
+        
         if sender.isSelected == false {
          
             var letter: String = sender.titleLabel?.text ?? ""
@@ -278,6 +291,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         print(lettersAndVocals)
+
+        
+        Utilidades.consulta(word: "casa", completion:{ result in
+            
+            print(result)
+            
+        })
+            
+            
+            
         
         
     }
