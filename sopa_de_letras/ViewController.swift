@@ -18,8 +18,20 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     @IBAction func newGame(_ sender: Any) {
         
+        //inicio de variable y label
         lblTime.text = "30"
         self.segJuegos = 30
+        
+        //reinicio tabla
+        self.correctsWords = []
+        self.tableView.reloadData()
+        
+        //reinicio variable estado de inicio
+        self.newGame = false
+        
+        //reinicio collection
+        self.lettersAndVocals = crearLaSopa()
+        collectionLetter.reloadData()
         
     }
     
@@ -257,41 +269,40 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.lblWord.text = ""
         self.lblTime.text = "30"
         
-        self.letters = ["B", "C", "D","F", "G", "H",
-        "J","K","L","M","P","Q","R","S","T","W","X","Z"]
-        
-        self.vocals = ["A", "E", "I", "O", "U"]
-        
-        //Selecciono 5 letras
-        for i in 0...5 {
-            
-            print("indice: ", i , "letra: ", letters.randomElement())
-            
-            self.lettersAndVocals.append(letters.randomElement()!)
-            
-            //ahora lo borro para que no sea nuevamente seleccionado
-//            var indexLetter: Int = letters.firstIndex(of: lettersAndVocals[i]) ?? 0
+//        self.letters = ["B", "C", "D","F", "G", "H",
+//        "J","K","L","M","P","Q","R","S","T","W","X","Z"]
 //
-//            letters.remove(at: indexLetter)
-            
-        }
-        
-        //selecciono 4 vocales
-        for i in 6...9 {
-            
-            print("indice: ", i , "vocal: ", vocals.randomElement())
-            
-            //haré lo mismo para las vocales
-            self.lettersAndVocals.append(vocals.randomElement()!)
-            
-//            var indexVocal: Int = vocals.firstIndex(of: lettersAndVocals[i]) ?? 0
-//            
-//            letters.remove(at: indexVocal)
-            
-        }
-        
-        print(lettersAndVocals)
+//        self.vocals = ["A", "E", "I", "O", "U"]
+//
+//        //Selecciono 5 letras
+//        for i in 0...5 {
+//
+//            print("indice: ", i , "letra: ", letters.randomElement())
+//
+//            self.lettersAndVocals.append(letters.randomElement()!)
+//
+//            //ahora lo borro para que no sea nuevamente seleccionado
+////            var indexLetter: Int = letters.firstIndex(of: lettersAndVocals[i]) ?? 0
+////
+////            letters.remove(at: indexLetter)
+//
+//        }
+//
+//        //selecciono 4 vocales
+//        for i in 6...9 {
+//
+//            print("indice: ", i , "vocal: ", vocals.randomElement())
+//
+//            //haré lo mismo para las vocales
+//            self.lettersAndVocals.append(vocals.randomElement()!)
+//
+////            var indexVocal: Int = vocals.firstIndex(of: lettersAndVocals[i]) ?? 0
+////
+////            letters.remove(at: indexVocal)
+//
+//        }
 
+        self.lettersAndVocals = crearLaSopa()
         
         Utilidades.consulta(word: "casa", completion:{ result in
             
@@ -303,6 +314,51 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             
         
         
+    }
+    
+    func crearLaSopa () -> [String] {
+        
+        /*
+         Creará un array de botones
+         que se utilizará en el collectionView
+         */
+        
+        //primero extraigo al azar letras
+        
+        self.letters = ["B", "C", "D","F", "G", "H",
+                        "J","K","L","M","P","Q","R","S","T","W","X","Z"]
+        
+        self.vocals = ["A", "E", "I", "O", "U"]
+        
+        //array vacio
+        var arraySopa: [String] = []
+        
+        
+        //Selecciono 5 letras
+        for i in 0...5 {
+            
+            print("indice: ", i , "letra: ", letters.randomElement())
+            
+            arraySopa.append(letters.randomElement()!)
+            
+            
+        }
+        
+        //selecciono 4 vocales
+        for i in 6...9 {
+            
+            print("indice: ", i , "vocal: ", vocals.randomElement())
+            
+            //haré lo mismo para las vocales
+            arraySopa.append(vocals.randomElement()!)
+            
+            
+        }
+        
+        print(arraySopa)
+    
+        return arraySopa
+
     }
 
 }
