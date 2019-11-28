@@ -14,8 +14,10 @@ struct Game {
     init(puntos: Int, periodo: Int) {
         self.puntos = puntos
         self.periodo = periodo
+        self.bonus = 0
     }
     
     var puntos: Int
     var periodo: Int
+    var bonus: Int
 }

@@ -160,6 +160,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var game: Game = Game(puntos: 0, periodo: 1)
     
+    var periodoActual: Int = 1
+    
     
     @IBOutlet weak var collectionLetter: UICollectionView!
     
@@ -277,8 +279,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //esta funcion inicia el conteo
         //var segActuales:Int = Int(self.lblTime.text)
-        
+    
         self.segJuegos -= 1
+        
+        //coloco en el struct game
+        //el periodo que le corresponda
+        
+        if self.segJuegos % 5 == 0 {
+            self.game.periodo += 1
+            
+            print("periodo: ", self.game.periodo)
+        }
+        
         
         if self.segJuegos <= 0 {
             
@@ -398,6 +410,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
          podría hacer un struct?
          */
         
+        if periodoActual == self.game.periodo {
+            self.game.bonus += 1
+            self.game.puntos = 
+        }
         self.lblPuntos.text = String(self.puntosActuales)
         self.lblBonus.text = String(self.bonus)
         
