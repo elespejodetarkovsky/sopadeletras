@@ -12,6 +12,8 @@ import Alamofire
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDelegate, UITableViewDataSource {
     
+    @IBOutlet weak var lblBonus: UILabel!
+    @IBOutlet weak var lblPuntos: UILabel!
     @IBOutlet weak var lblCheck: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +34,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         //reinicio collection
         self.lettersAndVocals = crearLaSopa()
         collectionLetter.reloadData()
+        
+        //limpio la palabra
+        self.lblWord.text = ""
         
     }
     
@@ -62,40 +67,66 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
          para poder validarla y agregarla a la lista
          */
     
+            self.lblCheck.text = "evaluando..."
+            self.lblCheck.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
         
-        var match: Bool = false
+        
         var word: String = self.lblWord.text ?? ""
+    
+        do {
         
-            //aquí hace la consulta
-            Utilidades.consulta(word: word, completion:{ result in
-                
-                print(result)
-                
-                if result == true {
+            try Utilidades.validate(word)
+            
+            var match: Bool = false
+            
+                //aquí hace la consulta
+                Utilidades.consulta(word: word, completion:{ result in
                     
-                    //evaluo si se ha introducido ya
-                    if self.correctsWords.firstIndex(of: word) == nil {
+                    print(result)
+                    
+                    if result == true {
                         
-                        self.correctsWords.append(self.lblWord.text!)
-                        self.tableView.reloadData()
-                        self.lblCheck.text = "correcto"
-                        self.lblCheck.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
-                        
+                        //evaluo si se ha introducido ya
+                        if self.correctsWords.firstIndex(of: word) == nil {
+                            
+                            self.correctsWords.append(self.lblWord.text!)
+                            self.tableView.reloadData()
+                            self.lblCheck.text = "correcto"
+                            self.lblCheck.textColor = #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1)
+                            
+                            //libero los botones
+                            self.releaseButtons()
+                            
+                            //borro la palabra correcta
+                            self.lblWord.text = ""
+                            
+                            
+                        } else {
+                            
+                            self.lblCheck.text = "ya introducida"
+                        }
                         
                     } else {
                         
-                        self.lblCheck.text = "ya introducida"
+                        self.lblCheck.text = "incorrecto"
+                        self.lblCheck.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+                        
                     }
-                    
-                }
 
+                    
+                })
                 
-            })
+
             
-        
-        if !match {
-            self.lblCheck.text = "incorrecto"
-            self.lblCheck.textColor = #colorLiteral(red: 0.521568656, green: 0.1098039225, blue: 0.05098039284, alpha: 1)
+        } catch Utilidades.ValidationError.emptyWord {
+            
+            self.lblCheck.text = "palabra vacía"
+            self.lblCheck.textColor = #colorLiteral(red: 0.7450980544, green: 0.1568627506, blue: 0.07450980693, alpha: 1)
+            
+        } catch {
+            
+            print("Error desconocido")
+            
         }
         
         
@@ -123,7 +154,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     var correctsWords: [String] = []
     
-    var wordDictionary: [String] = ["A", "B", "CASA", "E", "LULU", "R", "PIPA", "YULI"]
+    var puntosActuales: Int = 0
+    
+    var bonus: Int = 0
+    
+    var game: Game = Game(puntos: 0, periodo: 1)
+    
     
     @IBOutlet weak var collectionLetter: UICollectionView!
     
@@ -268,49 +304,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.lblWord.text = ""
         self.lblTime.text = "30"
-        
-//        self.letters = ["B", "C", "D","F", "G", "H",
-//        "J","K","L","M","P","Q","R","S","T","W","X","Z"]
-//
-//        self.vocals = ["A", "E", "I", "O", "U"]
-//
-//        //Selecciono 5 letras
-//        for i in 0...5 {
-//
-//            print("indice: ", i , "letra: ", letters.randomElement())
-//
-//            self.lettersAndVocals.append(letters.randomElement()!)
-//
-//            //ahora lo borro para que no sea nuevamente seleccionado
-////            var indexLetter: Int = letters.firstIndex(of: lettersAndVocals[i]) ?? 0
-////
-////            letters.remove(at: indexLetter)
-//
-//        }
-//
-//        //selecciono 4 vocales
-//        for i in 6...9 {
-//
-//            print("indice: ", i , "vocal: ", vocals.randomElement())
-//
-//            //haré lo mismo para las vocales
-//            self.lettersAndVocals.append(vocals.randomElement()!)
-//
-////            var indexVocal: Int = vocals.firstIndex(of: lettersAndVocals[i]) ?? 0
-////
-////            letters.remove(at: indexVocal)
-//
-//        }
 
-        self.lettersAndVocals = crearLaSopa()
+        print(self.game)
         
-        Utilidades.consulta(word: "casa", completion:{ result in
-            
-            print(result)
-            
-        })
-            
-            
+        self.lettersAndVocals = crearLaSopa()
             
         
         
@@ -359,6 +356,58 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
         return arraySopa
 
+    }
+    
+    func releaseButtons () {
+        
+        /*
+         esta funcion limpiará y volverá a habilitar
+         los botones de la collection
+        */
+
+        let items: Int = collectionLetter.numberOfItems(inSection: 0) - 1
+        
+        for i in 0...items {
+            
+            var indexPath = NSIndexPath(row: i, section: 0)
+            
+            //var cell = collectionLetter.dequeueReusableCell(withReuseIdentifier: "cellLetter", for: indexPath as IndexPath) as! LetterViewCell
+            
+            let cell = collectionLetter.cellForItem(at: indexPath as IndexPath) as! LetterViewCell
+            
+            
+            cell.buttonLetter.backgroundColor = #colorLiteral(red: 0.9764705896, green: 0.850980401, blue: 0.5490196347, alpha: 1)
+            cell.buttonLetter.isSelected = false
+            
+            print("libero el button: ", cell.buttonLetter.titleLabel?.text)
+            
+
+        }
+        
+    }
+    
+    func wordPoint () -> Void{
+        
+        /*
+         esta funcion evaluará en funcion del tiempo y el bonus
+         acumulado cuantos puntos tendrá
+         */
+        
+        /*
+         Evaluo que esté en el mismo período que en el anterior
+         podría hacer un struct?
+         */
+        
+        self.lblPuntos.text = String(self.puntosActuales)
+        self.lblBonus.text = String(self.bonus)
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
 }

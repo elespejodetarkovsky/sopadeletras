@@ -16,6 +16,7 @@
 		447ED859238BD5B00018A5A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447ED858238BD5B00018A5A2 /* Assets.xcassets */; };
 		447ED85C238BD5B00018A5A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447ED85A238BD5B00018A5A2 /* LaunchScreen.storyboard */; };
 		44A5EA81238E775B00271658 /* Utilidades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44A5EA80238E775B00271658 /* Utilidades.swift */; };
+		44B3C1222390003E00744AFB /* Game.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B3C1212390003E00744AFB /* Game.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		447ED85B238BD5B00018A5A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		447ED85D238BD5B00018A5A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44A5EA80238E775B00271658 /* Utilidades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilidades.swift; sourceTree = "<group>"; };
+		44B3C1212390003E00744AFB /* Game.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Game.swift; sourceTree = "<group>"; };
 		8FF66283C489A75BF78511D4 /* Pods_sopa_de_letras.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_sopa_de_letras.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A38AC8C37E312B0E1F3C2EFC /* Pods-sopa_de_letras.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sopa_de_letras.debug.xcconfig"; path = "Target Support Files/Pods-sopa_de_letras/Pods-sopa_de_letras.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,6 +60,7 @@
 		447ED843238BD5AF0018A5A2 = {
 			isa = PBXGroup;
 			children = (
+				44B3C1202390001B00744AFB /* model */,
 				447ED863238BD83F0018A5A2 /* ViewControllers */,
 				447ED84E238BD5AF0018A5A2 /* sopa_de_letras */,
 				447ED84D238BD5AF0018A5A2 /* Products */,
@@ -95,6 +98,14 @@
 				443A1D47238BEE6100771A34 /* LetterViewCell.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		44B3C1202390001B00744AFB /* model */ = {
+			isa = PBXGroup;
+			children = (
+				44B3C1212390003E00744AFB /* Game.swift */,
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		E800868561581B5B04DDFCBD /* Frameworks */ = {
@@ -221,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				443A1D48238BEE6100771A34 /* LetterViewCell.swift in Sources */,
+				44B3C1222390003E00744AFB /* Game.swift in Sources */,
 				447ED854238BD5AF0018A5A2 /* ViewController.swift in Sources */,
 				447ED850238BD5AF0018A5A2 /* AppDelegate.swift in Sources */,
 				447ED852238BD5AF0018A5A2 /* SceneDelegate.swift in Sources */,

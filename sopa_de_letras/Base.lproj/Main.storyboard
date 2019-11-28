@@ -16,11 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYG-ub-Sjh" userLabel="lblCheck">
+                                <rect key="frame" x="15" y="437" width="384" height="21.5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="43" translatesAutoresizingMaskIntoConstraints="NO" id="maD-WM-ZPm">
-                                <rect key="frame" x="15" y="259" width="321" height="106.5"/>
+                                <rect key="frame" x="15" y="259" width="343" height="170"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleAspectFill" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="3BS-aq-acQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="321" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="30"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GWC-Lh-bN6" userLabel="New Game">
                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="30"/>
@@ -34,7 +41,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IWt-go-bgB" userLabel="Time">
-                                                <rect key="frame" x="150" y="5" width="21" height="20.5"/>
+                                                <rect key="frame" x="150" y="5" width="100" height="20.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="ho8-1s-cYO"/>
                                                 </constraints>
@@ -43,7 +50,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zTK-fz-NNO" userLabel="Borrar">
-                                                <rect key="frame" x="221" y="0.0" width="100" height="30"/>
+                                                <rect key="frame" x="300" y="0.0" width="43" height="30"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="ZCH-Ea-kPB"/>
                                                 </constraints>
@@ -56,16 +63,16 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="mJE-9Q-UFO">
-                                        <rect key="frame" x="0.0" y="73" width="321" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="73" width="343" height="33.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOW-sj-ZYO" userLabel="Word">
-                                                <rect key="frame" x="0.0" y="0.0" width="173.5" height="33.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="185.5" height="33.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pz0-Jm-IpC" userLabel="Check">
-                                                <rect key="frame" x="173.5" y="0.0" width="147.5" height="33.5"/>
+                                                <rect key="frame" x="185.5" y="0.0" width="157.5" height="33.5"/>
                                                 <state key="normal" title="CHECK"/>
                                                 <connections>
                                                     <action selector="chekWord:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gyn-Uy-MnJ"/>
@@ -74,11 +81,28 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="dJk-ug-z6Y">
+                                        <rect key="frame" x="0.0" y="149.5" width="343" height="20.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zYs-J3-SoB" userLabel="lblPuntos">
+                                                <rect key="frame" x="0.0" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iss-ax-IbB" userLabel="lblBonus">
+                                                <rect key="frame" x="301" y="0.0" width="42" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Zim-py-gTA">
-                                <rect key="frame" x="0.0" y="44" width="351" height="200"/>
+                                <rect key="frame" x="0.0" y="44" width="373" height="200"/>
                                 <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="q35-mW-ULC"/>
@@ -91,19 +115,19 @@
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cellLetter" id="LOe-IY-pkU" customClass="LetterViewCell" customModule="sopa_de_letras" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="VZY-h0-WhH">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q8j-x6-td3" userLabel="Letra">
-                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <accessibility key="accessibilityConfiguration" identifier="letterInCollection"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="FG1-Ke-uFM"/>
-                                                        <constraint firstAttribute="height" constant="50" id="LAs-Yx-EhS"/>
+                                                        <constraint firstAttribute="width" constant="65" id="FG1-Ke-uFM"/>
+                                                        <constraint firstAttribute="height" constant="65" id="LAs-Yx-EhS"/>
                                                     </constraints>
                                                     <state key="normal" title="A"/>
                                                     <connections>
@@ -138,13 +162,6 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="oxm-wx-f91"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYG-ub-Sjh" userLabel="lblCheck">
-                                <rect key="frame" x="20" y="411" width="129" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -163,7 +180,9 @@
                     </view>
                     <connections>
                         <outlet property="collectionLetter" destination="Zim-py-gTA" id="zJ9-tK-eDN"/>
+                        <outlet property="lblBonus" destination="Iss-ax-IbB" id="t3d-lM-Jxw"/>
                         <outlet property="lblCheck" destination="kYG-ub-Sjh" id="TDx-3T-Uaw"/>
+                        <outlet property="lblPuntos" destination="zYs-J3-SoB" id="pMt-Ih-HFW"/>
                         <outlet property="lblTime" destination="IWt-go-bgB" id="fIo-ey-RC6"/>
                         <outlet property="lblWord" destination="IOW-sj-ZYO" id="TTU-Pv-d30"/>
                         <outlet property="tableView" destination="bjn-8c-22E" id="ZLf-fk-I44"/>

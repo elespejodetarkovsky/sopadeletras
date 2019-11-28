@@ -11,6 +11,9 @@ import Alamofire
 
 class Utilidades {
    
+    public enum ValidationError: Error {
+        case emptyWord
+    }
     
     static let url = "https://store.apicultur.com/api/corrige-palabra/1.0.0"
 
@@ -38,5 +41,13 @@ class Utilidades {
         }
     }
     
+    static func validate (_ word: String) throws {
+        //evaluará si la introduccion es incorrecta
+        //por ejemplo si es vacia
+        
+        if word == "" {
+            throw ValidationError.emptyWord
+        }
+    }
     
 }
